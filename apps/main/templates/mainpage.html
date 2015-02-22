@@ -1,0 +1,39 @@
+<style type="text/css">
+.maintable {
+    margin: 0 auto;
+}
+textarea {
+    min-height: 100px;
+    width: 100%;
+}
+</style>
+<table class="maintable">
+    <tbody>
+        <tr>
+            <td>First name:</td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Date of birth:</td>
+            <td>{{ user.date_of_birth }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">Biography</td>
+        </tr>
+        <tr>
+            <td colspan="2"><textarea readonly>{{ user.bio }}</textarea></td>
+        </tr>
+        
+        <tr><td colspan="2">Contacts</td></tr>
+        {% for contact in user.contact_set.all %}
+            <tr>
+                <td>{{ contact.contact_type }} :</td>
+                <td>{{ contact.value }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
