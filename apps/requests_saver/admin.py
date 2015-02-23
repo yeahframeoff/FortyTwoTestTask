@@ -1,3 +1,4 @@
 from django.contrib import admin
+from requests_saver.models import RequestRecord
 
-# Register your models here.
+admin.site.register(RequestRecord)
