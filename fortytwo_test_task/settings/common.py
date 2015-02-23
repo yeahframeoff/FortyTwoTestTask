@@ -46,6 +46,7 @@ DEFAULT_APPS = (
 
 LOCAL_APPS = (
     'main',
+    'requests_saver',
 )
 
 THIRDPARTY_APPS = (
