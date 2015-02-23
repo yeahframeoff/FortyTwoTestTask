@@ -46,6 +46,7 @@ DEFAULT_APPS = (
 
 LOCAL_APPS = (
     'main',
+    'requests_saver',
 )
 
 THIRDPARTY_APPS = (
@@ -55,6 +56,9 @@ THIRDPARTY_APPS = (
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRDPARTY_APPS
 
 MIDDLEWARE_CLASSES = (
+
+    'requests_saver.middleware.RequestDBSaverMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,7 +87,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
