@@ -136,3 +136,8 @@ TEMPLATE_DIRS = (
 
 # Turn off south during test
 SOUTH_TESTS_MIGRATE = False
+
+# Fixtures settings for auth app
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'fixtures'),
+)
