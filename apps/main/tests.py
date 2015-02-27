@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
+
 # Create your tests here.
 class SomeTests(TestCase):
     def test_math(self):
@@ -14,5 +15,5 @@ class SettingsContextProcessorTests(TestCase):
         in its context
         """
         response = self.client.get(reverse('main'))
-        if response.status_code != 404 :
+        if response.status_code != 404:
             self.assertIn('settings', response.context)
