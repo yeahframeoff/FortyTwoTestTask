@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 
 from requests_saver.models import RequestRecord
 
+
 class HttpRequestDBSaveMiddlewareTest(TestCase):
     def test_record_is_saved_in_db_after_request(self):
         """

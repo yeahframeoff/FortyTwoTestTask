@@ -1,5 +1,6 @@
 from requests_saver.models import RequestRecord
 
+
 class RequestDBSaverMiddleware(object):
     def process_request(self, request):
         record = RequestRecord()
