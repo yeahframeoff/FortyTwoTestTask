@@ -1,39 +1,47 @@
 <style type="text/css">
-.maintable {
+#content {
     margin: 0 auto;
 }
+
 textarea {
     min-height: 100px;
     width: 100%;
 }
+
+.maintable {
+    width: 600px;
+}
+.maintable td {
+    vertical-align: top;
+}
+
 </style>
-<table class="maintable">
-    <tbody>
-        <tr>
-            <td>First name:</td>
-            <td>{{ user.first_name }}</td>
-        </tr>
-        <tr>
-            <td>Last name:</td>
-            <td>{{ user.last_name }}</td>
-        </tr>
-        <tr>
-            <td>Date of birth:</td>
-            <td>{{ user.date_of_birth }}</td>
-        </tr>
-        <tr>
-            <td colspan="2">Biography</td>
-        </tr>
-        <tr>
-            <td colspan="2"><textarea readonly>{{ user.bio }}</textarea></td>
-        </tr>
-        
-        <tr><td colspan="2">Contacts</td></tr>
-        {% for contact in user.contact_set.all %}
+
+<div id="content">
+    <h2>42 Coffee Cups Test Assignment</h2>
+    <table class="maintable">
+        <tbody>
             <tr>
-                <td>{{ contact.contact_type }} :</td>
-                <td>{{ contact.value }}</td>
+                <td>
+                    <div>First name: {{ user.first_name }}</div>
+                    <div>Last name: {{ user.last_name }}</div>
+                    <div>Date of birth: {{ user.date_of_birth }}</div>
+                    <div>Biography:</div>
+                    <textarea readonly>{{ user.bio }}</textarea>
+                </td>
+                <td>
+                    <h5>Contacts:</h5>
+                    <div>Email: {{ user.email }}</div>
+                    <div>Jabber: {{ user.jabber }}</div>
+                    <div>Skype: {{ user.skype }}</div>
+                    <div>Other contacts:</div>
+                    <ul>
+                        {% for contact in user.contacts %}
+                            <li>{{ contact.contact_type }}: {{ contact.value }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
