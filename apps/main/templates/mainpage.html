@@ -1,7 +1,6 @@
-<style type="text/css">
-#content {
-    margin: 0 auto;
-}
+{% extends "base.html" %}
+
+{% block styles %}
 
 textarea {
     min-height: 100px;
@@ -14,35 +13,36 @@ textarea {
 .maintable td {
     vertical-align: top;
 }
+{% endblock %}
 
-</style>
-
-<div id="content">
-    <h2>42 Coffee Cups Test Assignment</h2>
-    <table class="maintable">
-        <tbody>
-            <tr>
-                <td>
-                    <div>First name: {{ user.first_name }}</div>
-                    <div>Last name: {{ user.last_name }}</div>
-                    <div>Date of birth: {{ user.date_of_birth }}</div>
-                    <div>Biography:</div>
-                    <textarea readonly>{{ user.bio }}</textarea>
-                </td>
-                <td>
-                    <h5>Contacts:</h5>
-                    <div>Email: {{ user.email }}</div>
-                    <div>Jabber: {{ user.jabber }}</div>
-                    <div>Skype: {{ user.skype }}</div>
-                    <div>Other contacts:</div>
-                    <ul>
-                        {% for contact in user.contacts %}
-                            <li>{{ contact.contact_type }}: {{ contact.value }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+{% block title %}
+42 Coffee Cups Test Assignment
+{% endblock %}
+{% block content %}
+<table class="maintable">
+    <tbody>
+        <tr>
+            <td>
+                <div>First name: {{ user.first_name }}</div>
+                <div>Last name: {{ user.last_name }}</div>
+                <div>Date of birth: {{ user.date_of_birth }}</div>
+                <div>Biography:</div>
+                <textarea readonly>{{ user.bio }}</textarea>
+            </td>
+            <td>
+                <h5>Contacts:</h5>
+                <div>Email: {{ user.email }}</div>
+                <div>Jabber: {{ user.jabber }}</div>
+                <div>Skype: {{ user.skype }}</div>
+                <div>Other contacts:</div>
+                <ul>
+                    {% for contact in user.contacts %}
+                        <li>{{ contact.contact_type }}: {{ contact.value }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <a href="{% url 'requests' %}">Requests</a>
-</div>
+{% endblock %}
