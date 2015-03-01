@@ -50,6 +50,7 @@ LOCAL_APPS = (
 )
 
 THIRDPARTY_APPS = (
+    'south',
 )
 
 
