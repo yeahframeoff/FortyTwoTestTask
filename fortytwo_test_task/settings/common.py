@@ -146,7 +146,7 @@ FIXTURE_DIRS = (
     os.path.join(BASE_DIR, 'fixtures'),
 )
 
-
+# Template context processors
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
@@ -157,3 +157,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "main.processor.settings_processor",
 )
+
+# App paths
+APP_MAIN_DIR = os.path.join(os.path.join(BASE_DIR, 'apps'), 'main')

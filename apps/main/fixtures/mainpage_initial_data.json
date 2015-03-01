@@ -1,0 +1,15 @@
+[
+    {
+        "fields": {
+            "bio": "19-year old student from Kiev Polytechnic University", 
+            "date_of_birth": "1995-05-22", 
+            "email": "anthyef@gmail.com", 
+            "first_name": "Anton", 
+            "jabber": "yeahframeoff@42cc.co", 
+            "last_name": "Yefremov", 
+            "skype": "anthyef"
+        }, 
+        "model": "main.user", 
+        "pk": 1
+    }
+]
