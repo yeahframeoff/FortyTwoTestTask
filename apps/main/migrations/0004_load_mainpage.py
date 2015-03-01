@@ -15,7 +15,7 @@ class Migration(DataMigration):
         from os.path import join as joinpath
         from django.conf import settings
         call_command('loaddata', joinpath(
-            settings.APP_MAIN_DIR, 'fixtures/mainpage_initial_data.json'))
+            settings.APP_MAIN_DIR, 'fixtures/initial_data.json'))
 
     def backwards(self, orm):
         """
@@ -46,3 +46,4 @@ class Migration(DataMigration):
 
     complete_apps = ['main']
     symmetrical = True
+    no_dry_run = False
