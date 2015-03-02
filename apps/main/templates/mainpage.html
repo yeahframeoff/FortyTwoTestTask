@@ -23,26 +23,29 @@ textarea {
     <tbody>
         <tr>
             <td>
-                <div>First name: {{ user.first_name }}</div>
-                <div>Last name: {{ user.last_name }}</div>
-                <div>Date of birth: {{ user.date_of_birth }}</div>
-                <div>Biography:</div>
-                <textarea readonly>{{ user.bio }}</textarea>
+                <p>First name: {{ user.first_name }}</p>
+                <p>Last name: {{ user.last_name }}</p>
+                <p>Date of birth: {{ user.date_of_birth }}</p>
+                {% if user.photo %}
+                    <p><img src="{{ user.photo.url }}"></p>
+                {% endif %}
             </td>
             <td>
                 <h5>Contacts:</h5>
-                <div>Email: {{ user.email }}</div>
-                <div>Jabber: {{ user.jabber }}</div>
-                <div>Skype: {{ user.skype }}</div>
-                <div>Other contacts:</div>
-                <ul>
-                    {% for contact in user.contacts %}
-                        <li>{{ contact.contact_type }}: {{ contact.value }}</li>
-                    {% endfor %}
-                </ul>
+                <p>Email: {{ user.email }}</p>
+                <p>Jabber: {{ user.jabber }}</p>
+                <p>Skype: {{ user.skype }}</p>
+                <p>Biography:</p>
+                <textarea readonly>{{ user.bio }}</textarea>
+                <p>Other contacts:</p>
+                <textarea readonly>{{ user.contacts }}</textarea>
+            </td>
+            <td>
+                <a href="{% url %}"></a>
             </td>
         </tr>
     </tbody>
 </table>
+<hr>
 <a href="{% url 'requests' %}">Requests</a>
 {% endblock %}

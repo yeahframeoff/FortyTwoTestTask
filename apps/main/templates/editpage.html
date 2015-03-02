@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block styles %}
+
+.maintable {
+    width: 600px;
+}
+.maintable td {
+    vertical-align: top;
+}
+{% endblock %}
+
+{% block title %}
+42 Coffee Cups Test Assignment
+{% endblock %}
+{% block content %}
+<form action="{% url 'edit' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<table class="maintable">
+    <tbody>
+        <tr>
+            <td>
+                <p>
+                    {{ form.first_name.errors }}
+                    <label for="{{ form.first_name.id_for_label }}" >Name:</label>
+                    {{ form.first_name }}
+                </p>
+                <p>
+                    {{ form.last_name.errors }}
+                    <label for="{{ form.last_name.id_for_label }}" >Last name:</label>
+                    {{ form.last_name }}
+                </p>
+                <p>
+                    {{ form.date_of_birth.errors }}
+                    <label for="{{ form.date_of_birth.id_for_label }}" >Date of birth:</label>
+                    {{ form.date_of_birth }}
+                </p>
+                <p>
+                    {{ form.photo.errors }}
+                    <label for="{{ form.photo.id_for_label }}" >Photo:</label>
+                    {{ form.photo }}
+                    {% if not not form.instance.photo %}
+                        <img src="{{ form.instance.photo.url }}">
+                    {% endif %}
+                </p>
+                
+            </td>
+            <td>
+                <h5>Contacts:</h5>
+                <p>
+                {{ form.email.errors }}
+                    <label for="{{ form.email.id_for_label }}" >Email:</label>
+                {{ form.email }}
+                </p>
+                <p>
+                {{ form.jabber.errors }}
+                    <label for="{{ form.jabber.id_for_label }}" >Jabber:</label>
+                {{ form.jabber }}
+                </p>
+                <p>
+                {{ form.skype.errors }}
+                    <label for="{{ form.skype.id_for_label }}" >Skype:</label>
+                {{ form.skype }}
+                </p>
+                <p>
+                {{ form.contacts.errors }}
+                    <label for="{{ form.contacts.id_for_label }}" >Other contacts:</label>
+                {{ form.contacts }}
+                </p>
+                <p>
+                {{ form.bio.errors }}
+                    <label for="{{ form.bio.id_for_label }}" >Biography:</label>
+                {{ form.bio }}
+                </p>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<input type="submit" value="Submit">
+<a href="{% url 'main' %}">Cancel</a>
+</form>
+<a href="{% url 'requests' %}">Requests</a>
+{% endblock %}
