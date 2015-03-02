@@ -6,7 +6,7 @@
             "email": "anthyef@gmail.com", 
             "first_name": "Anton", 
             "jabber": "yeahframeoff@42cc.co", 
-            "last_name": "Yefremov", 
+            "last_name": "Yefremov",
             "skype": "anthyef"
         }, 
         "model": "main.user", 
