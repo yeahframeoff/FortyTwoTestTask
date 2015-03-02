@@ -2,8 +2,6 @@ import datetime
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login as login_func
-from django.contrib.auth.forms import AuthenticationForm
 from main.models import User, UserForm
 
 
