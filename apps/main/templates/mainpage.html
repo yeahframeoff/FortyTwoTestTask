@@ -23,25 +23,29 @@ textarea {
     <tbody>
         <tr>
             <td>
-                <p>First name: {{ user.first_name }}</p>
-                <p>Last name: {{ user.last_name }}</p>
-                <p>Date of birth: {{ user.date_of_birth }}</p>
-                {% if user.photo %}
-                    <p><img src="{{ user.photo.url }}"></p>
+                <p>First name: {{ person.first_name }}</p>
+                <p>Last name: {{ person.last_name }}</p>
+                <p>Date of birth: {{ person.date_of_birth }}</p>
+                {% if person.photo %}
+                    <p><img src="{{ person.photo.url }}"></p>
                 {% endif %}
             </td>
             <td>
                 <h5>Contacts:</h5>
-                <p>Email: {{ user.email }}</p>
-                <p>Jabber: {{ user.jabber }}</p>
-                <p>Skype: {{ user.skype }}</p>
+                <p>Email: {{ person.email }}</p>
+                <p>Jabber: {{ person.jabber }}</p>
+                <p>Skype: {{ person.skype }}</p>
                 <p>Biography:</p>
-                <textarea readonly>{{ user.bio }}</textarea>
+                <textarea readonly>{{ person.bio }}</textarea>
                 <p>Other contacts:</p>
-                <textarea readonly>{{ user.contacts }}</textarea>
+                <textarea readonly>{{ person.contacts }}</textarea>
             </td>
-            <td>
-                <a href="{% url %}"></a>
+            <td>{% if user.is_authenticated %}
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                <p><a href="{% url 'edit' %}">Edit data</a></p>
+                {% else %}
+                <p><a href="{% url 'login' %}">Log In</a></p>
+                {% endif %}
             </td>
         </tr>
     </tbody>

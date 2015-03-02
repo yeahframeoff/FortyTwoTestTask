@@ -1,7 +1,9 @@
 import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login as login_func
+from django.contrib.auth.forms import AuthenticationForm
 from main.models import User, UserForm
 
 
@@ -11,9 +13,10 @@ def get_user():
 
 def mainpage(request):
     user = get_user()
-    return render(request, 'mainpage.html', {'user': user})
+    return render(request, 'mainpage.html', {'person': user})
 
 
+@login_required
 def editpage(request):
     user = get_user()
     if request.method == 'POST':

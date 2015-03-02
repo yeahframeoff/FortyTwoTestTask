@@ -161,3 +161,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 # App paths
 APP_MAIN_DIR = os.path.join(os.path.join(BASE_DIR, 'apps'), 'main')
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'edit'

@@ -3,7 +3,7 @@
 {% block styles %}
 
 .maintable {
-    width: 600px;
+    width: 860px;
 }
 .maintable td {
     vertical-align: top;
@@ -73,6 +73,14 @@
                 {{ form.bio }}
                 </p>
 
+            </td>
+            <td>
+                {% if user.is_authenticated %}
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                <p><a href="{% url 'main' %}">Go to Homepage</a></p>
+                {% else %}
+                <p><a href="{% url 'login' %}">Log In</a></p>
+                {% endif %}
             </td>
         </tr>
     </tbody>
